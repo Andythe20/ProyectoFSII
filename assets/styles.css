@@ -27,3 +27,7 @@ body{
     background-color: var(--color-cream-pastel);
     font-family: var(--font-header-pacifico), cursive;
 }
+
+nav.navbar{
+    font-family: var(--font-primary-lato);
+}
