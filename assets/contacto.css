@@ -1,36 +1,3 @@
-@font-face {
-    font-family: 'Lato';
-    src: url('./fonts/Lato/Lato-Regular.ttf')format('woff2');
-}
-
-@font-face {
-  font-family: 'Pacifico';
-  src: url('./fonts/Pacifico/Pacifico-Regular.ttf') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
-
-:root{
-    --color-cream-pastel: #FFF5E1; /* Fondo Principal */
-    --color-soft-pink: #FFC0CB; /* Botones y elementos */
-    --color-chocolate: #8B4513; /* Botones y elementos */
-
-    --color-text-primary: #5D4037;    /* Marrón Oscuro */
-    --color-text-secondary: #B0BEC5;  /* Gris Claro */
-
-    /* Fuentes */
-    --font-primary-lato: 'Lato', sans-serif; /* Texto general */
-    --font-header-pacifico: 'Pacifico', cursive; /* Titulos y encabezados */
-}
-
-body{
-    background-color: var(--color-cream-pastel);
-    font-family: var(--font-header-pacifico), cursive;
-}
-
-nav.navbar{
-    font-family: var(--font-primary-lato);
-}
 
 #formulario-contacto{
     border: 2px solid var(--color-text-primary);

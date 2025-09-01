@@ -31,3 +31,14 @@ body{
 nav.navbar{
     font-family: var(--font-primary-lato);
 }
+
+.btnBrown{
+    background-color: var(--color-soft-pink);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-chocolate);
+}
+
+.btnBrown:hover{
+    background-color: var(--color-chocolate);
+    color: var(--color-soft-pink);
+}
