@@ -1,6 +1,8 @@
 @font-face {
     font-family: 'Lato';
     src: url('./fonts/Lato/Lato-Regular.ttf')format('woff2');
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
@@ -23,6 +25,16 @@
     --font-header-pacifico: 'Pacifico', cursive; /* Titulos y encabezados */
 }
 
+::selection {
+  background: var(--color-chocolate); /* color de fondo al seleccionar */
+  color: var(--color-soft-pink);      /* color del texto seleccionado */
+}
+
+::-moz-selection { /* Para Firefox */
+  background: var(--color-chocolate);
+  color: var(--color-soft-pink);
+}
+
 body{
     background-color: var(--color-cream-pastel);
     font-family: var(--font-header-pacifico), cursive;
@@ -31,19 +43,54 @@ body{
 body h1 {
     font-family: var(--font-header-pacifico);
     color: var(--color-text-primary);
+    margin: 30px;
 }
 
 nav.navbar{
     font-family: var(--font-primary-lato);
 }
 
-.btnBrown{
+.btnBrown {
     background-color: var(--color-soft-pink);
     color: var(--color-text-primary);
     border: 1px solid var(--color-chocolate);
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
 }
 
 .btnBrown:hover{
     background-color: var(--color-chocolate);
     color: var(--color-soft-pink);
+    border-color: var(--color-soft-pink);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* sombra sutil */
+}
+
+/* CLASES DE LA PAGINA PRODUCTOS */
+.productos__testimonio{
+    font-family: var(--font-primary-lato);
+    color: var(--color-text-primary);
+}
+
+.producto__precio{
+    color: var(--color-chocolate);
+}
+
+.producto__descripcion{
+    color: var(--color-text-primary);
+    font-family: var(--font-primary-lato);
+}
+
+.card {
+  transition: 
+    transform 0.3s ease, 
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px); /* se levanta */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* sombra más fuerte */
 }

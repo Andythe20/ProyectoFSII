@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME v7.0.0 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- BOOTSTRAP v5.3.7 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <!-- CUSTOM CSS BASE -->
     <link rel="stylesheet" href="./assets/styles.css">
-    <title>Productos</title>
+    <title>Productos - Only Flans</title>
 </head>
 
 <body>
@@ -37,31 +41,46 @@
 
     <main class="container">
         <h1 class="text-center">
-            Repostería: Only Flans
+            Repostería : Only Flans
         </h1>
 
-        <section>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Tienda Online</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, architecto ipsam.</p>
-                    <button class="btn btn-success">Descargar</button>
-                </div>
-                <div class="col-sm-6">
-                    <p>Contáctanos</p>
-                    <button class="btn btn-warning">ir a Contacto</button>
-                </div>
-            </div>
-        </section>
+<section class="mt-5 mb-5">
+    <div class="row">
+        <div class="col-sm-6 text-center">
+            <h3 class="mb-3"><i class="fa-solid fa-star text-warning"></i> Testimonios</h3>
+            <blockquote class="blockquote">
+                <p class="productos__testimonio">"¡El mejor flan que he probado! Sabor casero y entrega rápida."</p>
+                <footer class="blockquote-footer text-end">Andrés O.</footer>
+            </blockquote>
+            <blockquote class="blockquote">
+                <p class="productos__testimonio">"Variedad increíble y atención personalizada. ¡Repetiré sin duda!"</p>
+                <footer class="blockquote-footer text-end">Luis M.</footer>
+            </blockquote>
+        </div>
+        <div class="col-sm-6">
+            <h3 class="mb-3"><i class="fa-solid fa-gift text-danger"></i> ¿Por qué elegirnos?</h3>
+            <ul class="list-group mb-3">
+                <li class="list-group-item productos__testimonio"><i class="fa-solid fa-leaf text-success"></i> Ingredientes frescos y naturales</li>
+                <li class="list-group-item productos__testimonio"><i class="fa-solid fa-truck-fast"></i> Entrega rápida y segura</li>
+                <li class="list-group-item productos__testimonio"><i class="fa-solid fa-heart text-danger"></i> Recetas artesanales</li>
+            </ul>
+            <div class="text-end">
+  <a href="./contacto.html" class="btn btnBrown mt-auto fs-5">
+    <i class="fa-solid fa-cake-candles"></i> ¡Contáctanos!
+  </a>
+</div>
+        </div>
+    </div>
+</section>
 
         <section class="">
-            <p class="h2 text-center my-5">Nuestros productos</p>
+            <p class="h2 text-center my-5 fs-1">Nuestros productos</p>
             <div class="d-flex">
                 <div class="align-self-center justify-content-between row g-3" id="productos">
-                <img src="./assets/img/logo.jpg" alt="">
+                    <!-- Productos se cargan desde productos.js -->
                 </div>
             </div>
-            
+
         </section>
     </main>
 
