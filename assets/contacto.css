@@ -5,6 +5,10 @@
     color: var(--color-text-primary);
 }
 
+#formulario-contacto p {
+    font-family: var(--font-primary-lato);
+}
+
 #formulario-contacto h2 {
     font-family: var(--font-header-pacifico);
     font-size: 40px;
@@ -15,6 +19,10 @@
 }
 
 #formulario-contacto form label {
+    font-family: var(--font-primary-lato);
+}
+
+#formulario-contacto form textarea {
     font-family: var(--font-primary-lato);
 }
 

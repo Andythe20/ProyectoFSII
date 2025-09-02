@@ -94,3 +94,12 @@ nav.navbar{
   transform: translateY(-8px); /* se levanta */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* sombra más fuerte */
 }
+
+.swal-title-custom {
+    font-family: var(--font-primary-lato); 
+    font-size: 60px;
+}
+
+.swal-text-custom {
+    font-family: var(--font-primary-lato); 
+}
