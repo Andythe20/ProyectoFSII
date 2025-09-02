@@ -28,6 +28,11 @@ body{
     font-family: var(--font-header-pacifico), cursive;
 }
 
+body h1 {
+    font-family: var(--font-header-pacifico);
+    color: var(--color-text-primary);
+}
+
 nav.navbar{
     font-family: var(--font-primary-lato);
 }
