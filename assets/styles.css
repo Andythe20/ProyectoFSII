@@ -103,3 +103,69 @@ nav.navbar{
 .swal-text-custom {
     font-family: var(--font-primary-lato); 
 }
+
+.card-blog{
+    color: var(--color-soft-pink); 
+    font-family: var(--font-header-pacifico);
+    margin: 5px;
+}
+
+.footer{
+    position: relative;
+    width: 100%;
+    background: indigo;
+    color: var(--color-cream-pastel);
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10px 5px;
+    flex-wrap: wrap;
+}
+
+.icon-element{
+    list-style: none;
+}
+
+.icon{
+    color: var(--color-cream-pastel);
+    font-size: 32px;
+    display: inline-block;
+    margin: 15px;
+    transition: 0.5s;
+    
+}
+
+.icon:hover{
+    transform: translateY(-15px);
+}
+
+.texto-comunidad {
+    font-size: 35px;
+    font-family: var(--font-header-pacifico);
+    color: var(--color-chocolate);
+    margin-bottom: 1.5rem;
+}
+
+.texto-bajo-comunidad{
+    font-family: var(--font-primary-lato); 
+}
+
+.card-text{
+    font-family: var(--font-primary-lato); 
+    color: var(--color-text-primary);
+}
+
+.card-title{
+    font-family: var(--font-header-pacifico);
+    color: var(--color-chocolate);
+}
