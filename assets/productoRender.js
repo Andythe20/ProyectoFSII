@@ -25,19 +25,23 @@ document.addEventListener('DOMContentLoaded', function () {
       productos.forEach(producto => {
         html += `
         <div class="col-12 col-md-6 col-lg-4 d-flex">
-        <div class="card mx-auto shadow-sm btnConcavo" style="width: 60%; display: flex; flex-direction: column; flex: 1;">
-        <form class="formulario__producto">
-                <img src="./assets/img/logo.jpg" class="card-img-top" alt="${producto.nombre}">
-                <div class="card-body d-flex flex-column flex-grow-1 text-center">
-                  <h5 class="card-title fs-3">${producto.nombre}</h5>
-                  <p class="card-text fs-2 fw-bold producto__precio">Precio: <span id="producto__precio--moneda">${formatoMoneda.format(producto.precio)}</span></p>
-                  <small>Código: ${producto.codigo}</small>
-                  <p class="flex-grow-1 producto__descripcion">${producto.descripcion || ''}</p>
-                  <button type="submit" class="btn btnBrown mt-auto fs-5"><i class="fa-solid fa-cart-plus"></i> Agregar</button>
-                </div>
-                </form>
-              </div>
+    <div class="card mx-auto shadow-sm btnConcavo d-flex flex-column w-100">
+        <form class="formulario__producto d-flex flex-column h-100">
+            <img src="./assets/img/logo.jpg" class="card-img-top" alt="${producto.nombre}">
+            <div class="card-body d-flex flex-column flex-grow-1 text-center">
+                <h5 class="card-title fs-3">${producto.nombre}</h5>
+                <p class="card-text fs-2 fw-bold producto__precio">
+                    Precio: <span id="producto__precio--moneda">${formatoMoneda.format(producto.precio)}</span>
+                </p>
+                <small>Código: ${producto.codigo}</small>
+                <p class="flex-grow-1 producto__descripcion">${producto.descripcion || ''}</p>
+                <button type="submit" class="btn btnBrown mt-auto fs-5">
+                    <i class="fa-solid fa-cart-plus"></i> Agregar
+                </button>
             </div>
+        </form>
+    </div>
+</div>
         `;
       });
 
@@ -46,16 +50,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Agregar event listeners a los formularios después de que se hayan agregado al DOM
       const forms = document.querySelectorAll('.formulario__producto');
-
+      
       // Manejar el evento de envío del formulario
       forms.forEach(form => {
         form.addEventListener('submit', function (event) {
+          console.log(event.target)
           const codigo = event.target.childNodes[3].childNodes[5].innerText.split('Código: ')[1];
           const nombre = event.target.childNodes[3].childNodes[1].innerText;
           const precio = parseInt(event.target.childNodes[3].childNodes[3].innerText.split('$')[1].replace(/\./g, ''));
+          const descripcion = event.target.childNodes[3].childNodes[7].innerHTML;
+          const imgUrl = event.target.childNodes[1].src;
           
           // Crear un nuevo producto con cantidad 1
-          const producto = new Producto(codigo, nombre, precio);
+          const producto = new Producto(codigo, nombre, precio, descripcion, imgUrl);
 
           // Agregar el producto al carrito
           carrito.agregarProducto(producto);
