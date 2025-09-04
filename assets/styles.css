@@ -172,3 +172,12 @@ nav.navbar{
     font-family: var(--font-header-pacifico);
     color: var(--color-chocolate);
 }
+
+#carouselExampleSlidesOnly {
+    --carousel-control-transition: all .2s ease-in-out;
+}
+
+#carouselExampleSlidesOnly h5, p {
+    color: var(--color-blanco-roto);
+    font-family: var(--font-primary-lato);
+}
