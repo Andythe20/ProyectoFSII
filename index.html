@@ -46,10 +46,18 @@
     </header>
 
     <main class="container-fluid">
-        <h1 class="text-center">
-            Repostería : Only Flans
-        </h1>
-        <hr>
+        <div id="logo-container" class="row align-items-center justify-content-center text-center flex-column flex-md-row">
+            <div class="col-12 col-md-auto mb-3 mb-md-0 d-flex justify-content-center">
+                <img src="assets/img/OnlyFlans_logo.png" alt="OnlyFlans Logo" class="img-fluid"
+                style="max-width: 150px; max-height: 150px;">
+            </div>
+            <div class="col-12 col-md-auto d-flex align-items-center justify-content-center mb-4 mb-md-0">
+                <h1 class="text-center m-0">
+                    Repostería : Only Flans
+                </h1>
+            </div>
+        </div>
+        <br>
         <!-- Carrusel -->
          <div id="carouselExampleSlidesOnly" class="carousel carousel-dark slide carousel-fade mb-5" data-bs-ride="carousel"
             style="max-width: 850px; margin: auto;">
@@ -85,6 +93,29 @@
                 </div>
             </div>
         </div>
+
+        <!-- Promociones -->
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="assets/img/alfajores2.jpg" class="card-img-top" alt="Promoción 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Promoción 1: Descuento en Alfajores</h5>
+                        <p class="card-text">Compra 6 alfajores y obtén un 10% de descuento en tu compra total.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="assets/img/cafe_y_muffin.jpg" class="card-img-top" alt="Promoción 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Promoción 2: Combo Café y Queque</h5>
+                        <p class="card-text">Disfruta de un café y un queque por solo $3.000 (precio regular $4.000).</p>
+                    </div>
+                </div>
+            </div>
+
     </main>
 
     <footer>
@@ -98,6 +129,7 @@
     <!-- Para iconos -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="assets/app.js"></script>
 </body>
 <footer class="footer">
 
