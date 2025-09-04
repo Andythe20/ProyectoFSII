@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Detectar evento agregar producto al carrito
   function mostrarAlerta(nombre, precio) {
     Swal.fire({
-      position: "top-end",
+      position: "top-start",
       icon: "success",
       title: `¡${nombre} agregado al carrito!`,
       showConfirmButton: false,
