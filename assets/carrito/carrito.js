@@ -1,8 +1,10 @@
 class Producto {
-    constructor(codigo, nombre, precio, cantidad = 1) {
+    constructor(codigo, nombre, precio, descripcion, imgUrl, cantidad = 1) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
+        this.descripcion = descripcion;
+        this.imgUrl = imgUrl;
         this.cantidad = cantidad;
     }
 
@@ -42,6 +44,7 @@ class Carrito {
             if (producto.cantidad <= 0) {
                 this.items = this.items.filter(item => item.codigo !== codigo);
             }
+            
         }
     }
 
@@ -62,6 +65,8 @@ class Carrito {
                 item.codigo,
                 item.nombre,
                 item.precio,
+                item.descripcion,
+                item.imgUrl,
                 item.cantidad
             ));
         }
