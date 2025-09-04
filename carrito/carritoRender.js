@@ -69,11 +69,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Insertar el HTML generado en el contenedor
     tablaCarrito.innerHTML = html;
 
-    
+
     function formatearMoneda(valor) {
         return valor.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
     }
-    
+
     // Actualizar el total del carrito
     document.getElementById('cart-total').innerText = formatearMoneda(carrito.calcularTotal());
 
@@ -110,6 +110,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Recargar la página para reflejar los cambios
             location.reload();
+        });
+    });
+
+    // Agregar listener al botón Proceder al Pago
+    document.getElementById('checkout-button').addEventListener('click', () => {
+
+        // Generar numero aleatorio 0 o 1 para simular exito o error en el pago
+        const exitoPago = Math.random() < 0.4; // % de probabilidad de éxito
+
+        let timerInterval;
+        Swal.fire({
+            title: "Procesando pago...",
+            html: "Espere un momento...",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                timerInterval = setInterval(() => {
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+
+                if (!exitoPago) {
+                    // Mensaje de error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error en el pago',
+                        text: 'Hubo un problema al procesar su pago. Por favor, intente nuevamente.',
+                        confirmButtonText: 'Aceptar',
+                        confirmButtonColor: '#8B4513'
+                    });
+                    return;
+                }
+
+                // Mensaje de éxito
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Pago exitoso!',
+                    text: 'Gracias por su compra.',
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#8B4513'
+                }).then(() => {
+                    // Vaciar el carrito y actualizar la vista
+                    localStorage.removeItem('carrito');
+                    location.reload(); // recarga la página
+                });
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
         });
     });
 });

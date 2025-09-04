@@ -72,11 +72,11 @@ class Carrito {
         }
     }
 
-    mostrarCarrito() {
-        console.log("🛒 Carrito de compras:");
+    contarProductos(){
+        let total = 0;
         this.items.forEach(item => {
-            console.log(`- ${item.nombre} x${item.cantidad} = $${item.subTotal()}`);
+            total += item.cantidad
         });
-        console.log(`TOTAL = $${this.calcularTotal()}`);
+        return total;
     }
 }
