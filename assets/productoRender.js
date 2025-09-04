@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </p>
                 <small>Código: ${producto.codigo}</small>
                 <p class="flex-grow-1 producto__descripcion">${producto.descripcion || ''}</p>
-                <button type="submit" class="btn btnBrown mt-auto fs-5">
+                <button type="submit" class="btn btnBrown mt-auto fs-5 id="btnAgregar">
                     <i class="fa-solid fa-cart-plus"></i> Agregar
                 </button>
             </div>
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Agregar event listeners a los formularios después de que se hayan agregado al DOM
       const forms = document.querySelectorAll('.formulario__producto');
-      
+
       // Manejar el evento de envío del formulario
       forms.forEach(form => {
         form.addEventListener('submit', function (event) {
@@ -60,12 +60,13 @@ document.addEventListener('DOMContentLoaded', function () {
           const precio = parseInt(event.target.childNodes[3].childNodes[3].innerText.split('$')[1].replace(/\./g, ''));
           const descripcion = event.target.childNodes[3].childNodes[7].innerHTML;
           const imgUrl = event.target.childNodes[1].src;
-          
+
           // Crear un nuevo producto con cantidad 1
           const producto = new Producto(codigo, nombre, precio, descripcion, imgUrl);
 
           // Agregar el producto al carrito
           carrito.agregarProducto(producto);
+          mostrarAlerta(nombre, precio);
 
           // Guardar el carrito en localStorage
           carrito.guardarEnLocalStorage();
@@ -79,6 +80,34 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error cargando productos:', error);
       contenedor.innerHTML = `<p class="text-danger">Error al cargar productos.</p>`;
     }
+  }
+
+  // Detectar evento agregar producto al carrito
+  function mostrarAlerta(nombre, precio) {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: `¡${nombre} agregado al carrito!`,
+      showConfirmButton: false,
+      timer: 1800,
+      timerProgressBar: true,
+      toast: true,
+      showClass: {
+        popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+      },
+      hideClass: {
+        popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+      }
+    });
+
   }
 
   // Cargar los productos al iniciar la página
