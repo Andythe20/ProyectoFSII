@@ -16,6 +16,8 @@
     --color-cream-pastel: #FFF5E1; /* Fondo Principal */
     --color-soft-pink: #FFC0CB; /* Botones y elementos */
     --color-chocolate: #8B4513; /* Botones y elementos */
+    --color-blanco-roto: #F8F6F4; /* Fondo de tarjetas y elementos secundarios */
+    --color-rosa-pastel: #FDEEEB; /* Fondo de tarjetas y elementos secundarios */
 
     --color-text-primary: #5D4037;    /* Marrón Oscuro */
     --color-text-secondary: #B0BEC5;  /* Gris Claro */
@@ -113,14 +115,15 @@ nav.navbar{
 .footer{
     position: relative;
     width: 100%;
-    background: indigo;
-    color: var(--color-cream-pastel);
+    background: var(--color-blanco-roto);
+    color: var(--color-chocolate);
     min-height: 100px;
     padding: 20px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border: 1px solid #5D4037;
 }
 
 .social-icons{
@@ -137,7 +140,7 @@ nav.navbar{
 }
 
 .icon{
-    color: var(--color-cream-pastel);
+    color: var(--color-chocolate);
     font-size: 32px;
     display: inline-block;
     margin: 15px;
