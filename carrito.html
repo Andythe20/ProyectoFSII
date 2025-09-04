@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME v7.0.0 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- CUSTOM CSS BASE -->
+    <link rel="stylesheet" href="./assets/styles.css">
+    <!-- CUSTOM CSS CARRITO WEB -->
+    <link rel="stylesheet" href="./assets/carrito/carrito.css">
+    <title>Carrito: Only Flans</title>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <header>
+        <nav class="navbar navbar-expand-sm bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">OnlyFlans</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto ">
+                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="./productos.html">Productos</a>
+                        <a class="nav-link" aria-current="page" href="./sobre-nosotros.html">Sobre nosotros</a>
+                        <a class="nav-link" href="./contacto.html">Contáctanos</a>
+                        <a class="nav-link" href="#">Carrito</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid my-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4">
+                Repostería : OnlyFlans
+            </h1>
+            <p class="lead">Gestiona tu carrito de compras</p>
+        </div>
+
+        <div class="row">
+            <!-- CARRITO DE COMPRAS -->
+            <div class="col-12 col-lg-7 mb-4">
+                <h2 class="section-title">
+                    <i class="fas fa-shopping-cart me-2"></i>Carrito de Compras
+                </h2>
+
+                <!-- Tabla del carrito -->
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col" class="text-center">Cantidad</th>
+                                <th scope="col" class="text-center">Precio Unit.</th>
+                                <th scope="col" class="text-center">Total</th>
+                                <th scope="col" class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                            <!-- Ejemplo de items en el carrito -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mensaje para carrito vacío (oculto por defecto) -->
+                <div class="empty-cart d-none" id="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>Tu carrito está vacío</h4>
+                    <p>Agrega algunos deliciosos productos para comenzar</p>
+                </div>
+
+                <!-- Total y acciones -->
+                <div class="total-section" id="total-section">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center p-4 bg-light rounded shadow-sm mt-4">
+                        <div class="mb-3 mb-md-0">
+                            <h3 class="mb-0 fw-bold text-success">
+                                <i class="fas fa-money-bill-wave me-2"></i>Total: <span id="cart-total">0</span>
+                            </h3>
+                        </div>
+                        <div>
+                            <button class="btn btnBrown btn-lg px-4" id="checkout-button">
+                                <i class="fas fa-credit-card me-2"></i>Proceder al Pago
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTOS SUGERIDOS -->
+            <div class="col-12 col-lg-5">
+                <h2 class="section-title">
+                    <i class="fas fa-cake me-2"></i>Podría gustarte
+                </h2>
+                <div class="row" id="product-list">
+                    <!-- Producto 1 -->
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                        <div class="card h-100">
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=200&fit=crop"
+                                class="card-img-top product-image" alt="Flan de Vainilla">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Flan de Vainilla</h6>
+                                <p class="card-text small text-muted">Clásico flan casero con sabor a vainilla</p>
+                                <p class="product-price mb-3">$3,500</p>
+                                <button class="btn btnBrown btn-sm w-100">
+                                    <i class="fas fa-plus me-1"></i>Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                        <div class="card h-100">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=200&fit=crop"
+                                class="card-img-top product-image" alt="Flan de Chocolate">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Flan de Chocolate</h6>
+                                <p class="card-text small text-muted">Delicioso flan con rico sabor a chocolate</p>
+                                <p class="product-price mb-3">$4,000</p>
+                                <button class="btn btnBrown btn-sm w-100">
+                                    <i class="fas fa-plus me-1"></i>Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                        <div class="card h-100">
+                            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR3BmquQz7DVEUt2S4YYPYEsHuGKfhVkZE6bitUJl7sAnL0PR15oDY8Fv0f5hq66hIuwkXovlBt65orUQVkfQYLc2V4E9C46TdVC-WtGQ"
+                                class="card-img-top product-image" alt="Flan de Caramelo">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Flan de Caramelo</h6>
+                                <p class="card-text small text-muted">Tradicional flan con caramelo casero</p>
+                                <p class="product-price mb-3">$3,800</p>
+                                <button class="btn btnBrown btn-sm w-100">
+                                    <i class="fas fa-plus me-1"></i>Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 4 -->
+                    <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                        <div class="card h-100">
+                            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=200&fit=crop"
+                                class="card-img-top product-image" alt="Flan de Coco">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Flan de Coco</h6>
+                                <p class="card-text small text-muted">Exótico flan tropical con coco rallado</p>
+                                <p class="product-price mb-3">$4,200</p>
+                                <button class="btn btnBrown btn-sm w-100">
+                                    <i class="fas fa-plus me-1"></i>Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS BOOTSTRAP v5.3.7 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <!-- CUSTOM JS CARRITO -->
+    <script src="./assets/carrito/carritoRender.js"></script>
+    <script src="./assets/carrito/carrito.js"></script>
+</body>
+<footer>
+
+</footer>
+
+</html>
