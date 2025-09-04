@@ -1,115 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pastelería Only Flans</title>
-    <!-- BOOTSTRAP v5.3.7 CSS -->
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-    crossorigin="anonymous"
-    />
-    <!-- CUSTOM CSS BASE -->
-    <link rel="stylesheet" href="../assets/styles.css" />
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="./contacto.css" />
-    <!-- ANIMATE.CSS V4 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  </head>
-    <script src="./validacion-contacto.js"></script>
-  <body>
-    <!--NAVBAR-->
-        <header>
-        <nav class="navbar navbar-expand-sm bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">OnlyFlans</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ms-auto ">
-                        <a class="nav-link" href="/">Home</a>
-                        <a class="nav-link" href="../productos.html">Productos</a>
-                        <a class="nav-link" aria-current="page" href="../sobre-nosotros.html">Sobre nosotros</a>
-                        <a class="nav-link" href="contacto.html">Contáctanos</a>
-                        <a class="nav-link" href="#">Carrito</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <div
-      class="container formulario mt-5 justify-content-center p-4 rounded"
-      style="min-width: 500px; max-width: 650px; min-height: auto; max-height: 900px;"
-      id="formulario-contacto"
-    >
-      <h2 class="text-center">Formulario de Contacto</h2>
-      <p class="text-center">Déjanos tus datos y nos pondremos en contacto</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pastelería Only Flans</title>
+  <!-- BOOTSTRAP v5.3.7 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <!-- CUSTOM CSS BASE -->
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="./contacto.css" />
+  <!-- ANIMATE.CSS V4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+<script src="./validacion-contacto.js"></script>
 
-      <!-- contenedor para alertas -->
-      <div id="alerta" class="mb-3"></div>
+<body>
+  <!--NAVBAR-->
+  <header>
+    <nav class="navbar navbar-expand-sm bg-body-tertiary barra-navegacion">
+      <div class="container-fluid">
 
-      <form class="mx-2" action="#" method="post" id="contactForm" novalidate>
-        <div class="row mb-3" style="min-width: auto; margin: auto">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre" required />
-          <div class="invalid-feedback">
-            El nombre debe tener al menos 3 caracteres.
+        <a class="navbar-brand" href="/">OnlyFlans</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto ">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="../productos.html">Productos</a>
+            <a class="nav-link" aria-current="page" href="../sobre-nosotros.html">Sobre nosotros</a>
+            <a class="nav-link" href="./contacto.html">Contáctanos</a>
+
+            <!-- Apartado del CARRITO -->
+            <a class="nav-link position-relative d-flex align-items-center" href="../carrito.html" id="carrito-link">
+              <ion-icon name="cart-outline" style="font-size: 1.8rem; vertical-align: middle;"></ion-icon>
+              <span id="cart-count"
+                class="position-absolute top-0.1 start-100 translate-middle badge rounded-pill bg-danger">
+                0
+              </span>
+            </a>
           </div>
         </div>
+      </div>
+    </nav>
+  </header>
 
-        <div class="row mb-3" style="min-width: auto; margin: auto">
-          <label for="correo" class="form-label">Correo</label>
-          <input
-            type="email"
-            id="correo"
-            name="correo"
-            class="form-control"
-            placeholder="Tu correo electrónico"
-            required
-          />
-          <div class="invalid-feedback">
-            Ingrese un correo válido (ej: example@gmail.com).
-          </div>
+  <div class="container formulario mt-5 justify-content-center p-4 rounded"
+    style="min-width: 500px; max-width: 650px; min-height: auto; max-height: 900px;" id="formulario-contacto">
+    <h2 class="text-center">Formulario de Contacto</h2>
+    <p class="text-center">Déjanos tus datos y nos pondremos en contacto</p>
+
+    <!-- contenedor para alertas -->
+    <div id="alerta" class="mb-3"></div>
+
+    <form class="mx-2" action="#" method="post" id="contactForm" novalidate>
+      <div class="row mb-3" style="min-width: auto; margin: auto">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre" required />
+        <div class="invalid-feedback">
+          El nombre debe tener al menos 3 caracteres.
         </div>
+      </div>
 
-        <div class="row mb-3" style="min-width: auto; margin: auto">
-          <label for="mensaje" class="form-label">Mensaje</label>
-          <textarea
-            name="mensaje"
-            id="mensaje"
-            class="form-control"
-            rows="5"
-            placeholder="Ingrese su mensaje"
-            style="resize: none;"
-          ></textarea>
-          <div class="invalid-feedback">
-            El mensaje debe tener entre 10 y 50 caracteres.
-          </div>
+      <div class="row mb-3" style="min-width: auto; margin: auto">
+        <label for="correo" class="form-label">Correo</label>
+        <input type="email" id="correo" name="correo" class="form-control" placeholder="Tu correo electrónico"
+          required />
+        <div class="invalid-feedback">
+          Ingrese un correo válido (ej: example@gmail.com).
         </div>
+      </div>
 
-        <div
-          class="row pt-4 mb-3"
-          style="min-width: auto; margin: auto; text-align: center"
-        >
-          <button class="btn" type="submit">Enviar</button>
+      <div class="row mb-3" style="min-width: auto; margin: auto">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <textarea name="mensaje" id="mensaje" class="form-control" rows="5" placeholder="Ingrese su mensaje"
+          style="resize: none;"></textarea>
+        <div class="invalid-feedback">
+          El mensaje debe tener entre 10 y 50 caracteres.
         </div>
-      </form>
-    </div>
+      </div>
 
-    <!-- JS BOOTSTRAP v5.3.7 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
+      <div class="row pt-4 mb-3" style="min-width: auto; margin: auto; text-align: center">
+        <button class="btn" type="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
 
-    <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- JS BOOTSTRAP v5.3.7 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
 
-    <script src="./validacion-contacto.js"></script>
-  </body>
+  <!-- Para iconos -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="./validacion-contacto.js"></script>
+</body>
+<footer class="footer mt-5">
+
+  <h3>No olvides seguirnos en nuestras redes sociales!!</h3>
+
+  <ul class="social-icons">
+    <li class="icon-element">
+      <a href="https://www.youtube.com/@CocinaAbiertaDuocUC" target="_blank" class="icon">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </a>
+    </li>
+    <li class="icon-element">
+      <a href="https://www.facebook.com/DuocUC" target="_blank" class="icon">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a>
+    </li>
+    <li class="icon-element">
+      <a href="https://www.instagram.com/duocuc_cl" target="_blank" class="icon">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+    </li>
+    <li class="icon-element">
+      <a href="https://x.com/DuocUC" target="_blank" class="icon">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </a>
+    </li>
+
+    <li class="icon-element">
+      <a href="https://www.linkedin.com/company/duocuc" target="_blank" class="icon">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a>
+    </li>
+
+  </ul>
+
+  <ul class="menu">
+    <p class="texto">
+      @2025 OnlyFlans | Todos los derechos reservados
+    </p>
+  </ul>
+</footer>
+
 </html>
