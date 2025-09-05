@@ -25,7 +25,11 @@
         <nav class="navbar navbar-expand-sm bg-body-tertiary barra-navegacion">
             <div class="container-fluid">
 
-                <a class="navbar-brand" href="/">OnlyFlans</a>
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    OnlyFlans
+                    <img src="./assets/img/OnlyFlans_logo.png" alt="Logo epIk0" width="50" height="50"
+                        class="d-inline-block align-text-top ms-2 rounded-circle p-1 border border-1">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -34,18 +38,31 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto ">
                         <a class="nav-link" href="/">Home</a>
-                        <a class="nav-link active" aria-current="page" href="./productos.html">Productos</a>
-                        <a class="nav-link" href="./sobre-nosotros.html">Sobre nosotros</a>
+                        <a class="nav-link active" href="./productos.html">Productos</a>
+                        <a class="nav-link" aria-current="page" href="./sobre-nosotros.html">Sobre nosotros</a>
                         <a class="nav-link" href="./contacto/contacto.html">Contáctanos</a>
 
+
+                        <!--- APARTADO DEL USUARIO -->
+                        <!-- Posible logo para cuando ya
+                        haya iniciado sesion ¿? 
+                        <ion-icon name="person-sharp"></ion-icon>
+                        -->
+
+                        <a class="nav-link" href="./login/login.html">Iniciar sesión</a>
+
+                        <!--- APARTADO DEL USUARIO -->
                         <!-- Apartado del CARRITO -->
                         <a class="nav-link position-relative d-flex align-items-center" href="./carrito.html"
                             id="carrito-link">
-                            <ion-icon name="cart-outline" style="font-size: 1.8rem; vertical-align: middle;"></ion-icon>
-                            <span id="cart-count"
-                                class="position-absolute top-0.1 start-100 translate-middle badge rounded-pill bg-danger">
-                                0
-                            </span>
+                            <div class="position-relative d-inline-block">
+                                <ion-icon name="cart-outline"
+                                    style="font-size: 1.8rem; vertical-align: middle;"></ion-icon>
+                                <span id="cart-count"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -112,7 +129,9 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!--CUSTOM JS-->
     <script src="./assets/productoRender.js"></script>
+    <!-- JS CARRITO -->
     <script src="./carrito/carrito.js"></script>
+    <script src="assets/app.js"></script>
 </body>
 <footer class="footer mt-5">
 

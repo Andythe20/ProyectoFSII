@@ -66,11 +66,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
           // Agregar el producto al carrito
           carrito.agregarProducto(producto);
-          mostrarAlerta(nombre, precio);
-
+          
           // Guardar el carrito en localStorage
           carrito.guardarEnLocalStorage();
+          
+          mostrarAlerta(nombre, precio);
+          // Actualizar el contador de productos en el carrito
+          let contadorProductos = document.getElementById('cart-count');
+          contadorProductos.innerText = carrito.contarProductos();
 
+          // Prevenir el envío del formulario
           event.preventDefault();
 
         });
