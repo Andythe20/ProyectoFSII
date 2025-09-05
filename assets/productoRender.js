@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="col-12 col-md-6 col-lg-4 d-flex">
     <div class="card mx-auto shadow-sm btnConcavo d-flex flex-column w-100">
         <form class="formulario__producto d-flex flex-column h-100">
-            <img src="./assets/img/logo.jpg" class="card-img-top" alt="${producto.nombre}">
+            <img src="${producto.url}" class="card-img-top" alt="${producto.nombre}">
             <div class="card-body d-flex flex-column flex-grow-1 text-center">
                 <h5 class="card-title fs-3">${producto.nombre}</h5>
                 <p class="card-text fs-2 fw-bold producto__precio">

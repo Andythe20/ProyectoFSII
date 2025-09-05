@@ -53,6 +53,7 @@
 body{
     background-color: var(--color-cream-pastel);
     font-family: var(--font-header-pacifico), cursive;
+    padding-top: 70px;
 }
 
 body h1 {
