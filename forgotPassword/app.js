@@ -1,19 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Elementos del DOM
-    const emailInput = $('email');
-    const passwordInput = $('password');
-    const btnLogin = $('login');
+    const BtnSendMessageRecover = $('BtnSendMessageRecover');
 
     // Añadimos el evento de clic al botón de login
-    btnLogin.addEventListener('click', (event) => {
-        //event.preventDefault(); // Prevenir el envío del formulario
+    BtnSendMessageRecover.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevenir el envío del formulario
+
+        // Elementos del DOM
+        const emailInput = $('recoveryEmail');
 
         // Validar campos
-        if (emailInput.value.trim() === '' || passwordInput.value.trim() === '') {
+        if (emailInput.value.trim() === '' || !validateEmail(emailInput.value)) {
             Swal.fire({
                 icon: 'error',
-                title: 'Campos Vacíos',
-                text: 'Por favor, completa todos los campos.'
+                title: 'Información incorrecta o incompleta',
+                text: 'Por favor, completa con tu correo electrónico.',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#8B4513'
             });
             return;
         }
@@ -23,16 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         Swal.fire({
             icon: 'success',
-            title: 'Éxito',
-            text: 'Has iniciado sesión correctamente.',
+            title: 'Validación exitosa',
+            text: "Se ha enviado información de recuperación a su correo electrónico.",
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true
         }).then(() => {
-            window.location.href = './userView/userView.html'; // Redirigir a la vista de usuario
+            window.location.href = '../login/login.html'; // Redirigir a la vista de login
         });
     });
 
+    // Función para validar el formato del correo electrónico
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return re.test(email)
+    };
 
     // Función para obtener un elemento por su ID
     function $(element) {
