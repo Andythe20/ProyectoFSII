@@ -6,14 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Añadimos el evento de clic al botón de login
     btnLogin.addEventListener('click', (event) => {
-        //event.preventDefault(); // Prevenir el envío del formulario
+        event.preventDefault(); // Prevenir el envío del formulario
 
         // Validar campos
         if (emailInput.value.trim() === '' || passwordInput.value.trim() === '') {
             Swal.fire({
                 icon: 'error',
                 title: 'Campos Vacíos',
-                text: 'Por favor, completa todos los campos.'
+                text: 'Por favor, completa todos los campos.',
+                confirmButtonColor: '#8B4513'
             });
             return;
         }
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             timer: 2000,
             timerProgressBar: true
         }).then(() => {
-            window.location.href = './userView/userView.html'; // Redirigir a la vista de usuario
+            window.location.href = '../index.html'; // Redirigir a la vista de usuario
         });
     });
 
