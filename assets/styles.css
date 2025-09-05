@@ -213,3 +213,8 @@ nav.navbar{
     border-radius: 10%;
     box-shadow: 0 2px 8px rgba(139, 69, 19, 0.15);
 }
+
+.borde-apartado{
+    border-bottom: 3px solid var(--color-chocolate) !important;
+    transition: 0.3s ease
+}
