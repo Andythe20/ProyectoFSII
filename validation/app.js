@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     timer: 2000,
                     timerProgressBar: true,
                     willClose: () => {
-                        window.location.href = '../index.html'; // Ajustar la ruta 
+                        window.location.href = '../login/login.html'; // Ajustar la ruta 
                     }
                 }
             );
