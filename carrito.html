@@ -22,7 +22,7 @@
 <body>
     <!--NAVBAR-->
     <header>
-        <nav class="navbar navbar-expand-sm bg-body-tertiary barra-navegacion fixed-top">
+        <nav class="navbar navbar-expand-sm bg-body-tertiary barra-navegacion fixed-top shadow">
             <div class="container-fluid">
 
                 <a class="navbar-brand d-flex align-items-center" href="/">
@@ -92,12 +92,12 @@
                                 <th scope="col">Producto</th>
                                 <th scope="col" class="text-center">Cantidad</th>
                                 <th scope="col" class="text-center">Precio Unit.</th>
-                                <th scope="col" class="text-center">Total</th>
-                                <th scope="col" class="text-center">Acciones</th>
+                                <th scope="col" class="text-center">Sub total</th>
+                                <th scope="col" class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody id="cart-items">
-                            <!-- Ejemplo de items en el carrito -->
+                            <!-- Elementos generados dinámicamente con JS -->
                         </tbody>
                     </table>
                 </div>
@@ -107,6 +107,12 @@
                     <i class="fas fa-shopping-cart"></i>
                     <h4>Tu carrito está vacío</h4>
                     <p class="carrito__parrafo">Agrega algunos deliciosos productos para comenzar</p>
+                    <p class="text-center">
+                        <a href="./productos.html" class="btn btnBrown">
+                            Ver Productos
+                        </a>
+                    </p>
+                    <hr>
                 </div>
 
                 <!-- Total y acciones -->
@@ -133,69 +139,12 @@
                     <i class="fas fa-cake me-2"></i>Podría gustarte
                 </h2>
                 <div class="row" id="product-list">
-                    <!-- Producto 1 -->
-                    <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=200&fit=crop"
-                                class="card-img-top product-image" alt="Flan de Vainilla">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Flan de Vainilla</h6>
-                                <p class="card-text small text-muted">Clásico flan casero con sabor a vainilla</p>
-                                <p class="product-price mb-3">$3,500</p>
-                                <button class="btn btnBrown btn-sm w-100">
-                                    <i class="fas fa-plus me-1"></i>Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 4 Productos aleatorios que no estén en el carrito -->
+                    
 
-                    <!-- Producto 2 -->
-                    <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=200&fit=crop"
-                                class="card-img-top product-image" alt="Flan de Chocolate">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Flan de Chocolate</h6>
-                                <p class="card-text small text-muted">Delicioso flan con rico sabor a chocolate</p>
-                                <p class="product-price mb-3">$4,000</p>
-                                <button class="btn btnBrown btn-sm w-100">
-                                    <i class="fas fa-plus me-1"></i>Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    
 
-                    <!-- Producto 3 -->
-                    <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-                        <div class="card h-100">
-                            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR3BmquQz7DVEUt2S4YYPYEsHuGKfhVkZE6bitUJl7sAnL0PR15oDY8Fv0f5hq66hIuwkXovlBt65orUQVkfQYLc2V4E9C46TdVC-WtGQ"
-                                class="card-img-top product-image" alt="Flan de Caramelo">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Flan de Caramelo</h6>
-                                <p class="card-text small text-muted">Tradicional flan con caramelo casero</p>
-                                <p class="product-price mb-3">$3,800</p>
-                                <button class="btn btnBrown btn-sm w-100">
-                                    <i class="fas fa-plus me-1"></i>Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Producto 4 -->
-                    <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=200&fit=crop"
-                                class="card-img-top product-image" alt="Flan de Coco">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">Flan de Coco</h6>
-                                <p class="card-text small text-muted">Exótico flan tropical con coco rallado</p>
-                                <p class="product-price mb-3">$4,200</p>
-                                <button class="btn btnBrown btn-sm w-100">
-                                    <i class="fas fa-plus me-1"></i>Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

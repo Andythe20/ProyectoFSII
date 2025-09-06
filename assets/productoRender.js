@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="col-12 col-md-6 col-lg-4 d-flex">
           <div class="card mx-auto shadow-sm btnConcavo d-flex flex-column w-100">
               <form class="formulario__producto d-flex flex-column h-100">
-                  <a href="./detalleProducto.html?cod=${producto.codigo}"><img src="${producto.url}" class="card-img-top shadow" alt="${producto.nombre}"></a>
+                  <a href="./detalleProducto.html?cod=${producto.codigo}">
+                    <img src="${producto.url}" class="card-img-top shadow" alt="${producto.nombre} data-bs-toggle="tooltip" data-bs-placement="top" title="Click para ver detalle de ${producto.nombre}">
+                  </a>
                   <div class="card-body d-flex flex-column flex-grow-1 text-center">
                       <h5 class="card-title fs-3">${producto.nombre}</h5>
                       <p class="card-text fs-2 fw-bold producto__precio">
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                       <small>Código: ${producto.codigo}</small>
                       <p class="flex-grow-1 producto__descripcion">${producto.descripcion || ''}</p>
                       <button type="submit" class="btn btnBrown mt-auto fs-5 id="btnAgregar">
-                          <i class="fa-solid fa-cart-plus"></i> Agregar
+                          <i class="fas fa-shopping-cart me-2"></i>Agregar
                       </button>
                   </div>
               </form>
@@ -60,7 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
           const precio = parseInt(event.target.childNodes[3].childNodes[3].innerText.split('$')[1].replace(/\./g, ''));
           const descripcion = event.target.childNodes[3].childNodes[7].innerHTML;
           //const imgUrl = event.target.childNodes[1].src;
-          const imgUrl = document.querySelector('.formulario__producto img').src;
+          const imgUrl = event.target.querySelector('img').src;
+          console.log(imgUrl)
 
           // Crear un nuevo producto con cantidad 1
           const producto = new Producto(codigo, nombre, precio, descripcion, imgUrl);

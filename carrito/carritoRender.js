@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mostrar mensaje carrito vacío
         emptyCartDiv.classList.remove('d-none');
         totalSection.classList.add('d-none');
-        tbody.innerHTML = ''; // limpiar tabla
+        //tbody.innerHTML = ''; // limpiar tabla
         document.getElementById('cart-total').innerText = '0';
+        obtenerProductos(); // mostrar 4 productos sugeridos de forma aleatoria
         return;
     } else {
         emptyCartDiv.classList.add('d-none');
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let html = '';
 
     // Número máximo de caracteres para la descripción corta
-    const cantidadCaracteresDescripcion = 50;
+    const cantidadCaracteresDescripcion = 30;
 
     // Generar el HTML para cada producto en el carrito
     carrito.items.forEach(item => {
@@ -33,12 +34,15 @@ document.addEventListener('DOMContentLoaded', function () {
         html += `<tr>
                     <td>
                         <div class="d-flex align-items-center" data-codigo="${item.codigo}">
-                            <img src="${item.imgUrl}"
-                                alt="${item.nombre}" class="me-3"
-                                style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
+                            <a href="./detalleProducto.html?cod=${item.codigo}" data-bs-toggle="tooltip" data-bs-placement="top" title="Click para ver detalle de ${item.nombre}">
+                                <img src="${item.imgUrl}"
+                                    alt="${item.nombre}" class="me-3"
+                                    style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;"
+                                >
+                            </a>
                             <div>
                                 <h6 class="mb-1">${item.nombre}</h6>
-                                <small class="text-muted">${descripcionCorta}</small>
+                                <small class="text-muted" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${item.descripcion}">${descripcionCorta}</small>
                             </div>
                         </div>
                     </td>
@@ -47,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <button class="quantity-btn" data-codigo="${item.codigo}" data-action="restar">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <span class="quantity-display">${item.cantidad}</span>
+                            <span class="quantity-display fs-6">${item.cantidad}</span>
                             <button class="quantity-btn" data-codigo="${item.codigo}" data-action="sumar">
                                 <i class="fas fa-plus"></i>
                             </button>
@@ -68,11 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Insertar el HTML generado en el contenedor
     tablaCarrito.innerHTML = html;
-
-
-    function formatearMoneda(valor) {
-        return valor.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
-    }
 
     // Actualizar el total del carrito
     document.getElementById('cart-total').innerText = formatearMoneda(carrito.calcularTotal());
@@ -165,4 +164,63 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // Mostrar 4 productos aleatorios que no estén en el carrito
+    async function obtenerProductos(){
+        try {
+            const response = await fetch('assets/db.json');
+            if(!response.ok){
+                throw new Error('Error en la respuesta: ' + response.status);
+            }
+            const data = await response.json();
+            
+            // Desordenar aleatoriamente los productos
+            const productosDesordenados = data.sort(() => Math.random() - 0.5);
+            //console.log(productosDesordenados)
+
+            // Filtrar productos que no estén en el carrito
+            const productosFiltrados = productosDesordenados.filter(p => !carrito.items.some(item => item.codigo === p.codigo));
+            console.log(productosFiltrados)
+
+            // Tomar los primeros 4 productos del arreglo filtrado
+            const productosParaMostrar = productosFiltrados.slice(0, 4);
+            console.log(productosParaMostrar)
+
+            // Renderizar los productos sugeridos
+            const sugeridosContainer = document.getElementById('product-list');
+            sugeridosContainer.innerHTML = ''; // Limpiar contenido previo
+
+            let htmlSugeridos = '';
+
+            productosParaMostrar.forEach(producto => {
+                htmlSugeridos += `
+                <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                    <div class="card h-100">
+                        <img src="${producto.url}"
+                            class="card-img-top product-image" alt="${producto.nombre}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">${producto.nombre}</h6>
+                            <p class="card-text small text-muted">${producto.descripcion}</p>
+                            <p class="product-price mb-3">${formatearMoneda(producto.precio)} c/u </p>
+                            <button class="btn btnBrown btn-sm w-100">
+                                <i class="fas fa-plus me-1"></i>Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                `
+                sugeridosContainer.innerHTML = htmlSugeridos;
+            });
+        } catch (error) {
+            console.error('Error al obtener productos:', error);
+        };
+    }
+
+    // Funciones auxiliares
+    function formatearMoneda(valor) {
+        return valor.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+    }
+
+    // Invocar funciones
+    obtenerProductos();
 });
