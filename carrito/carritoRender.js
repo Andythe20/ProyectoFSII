@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let html = '';
 
     // Número máximo de caracteres para la descripción corta
-    const cantidadCaracteresDescripcion = 50;
+    const cantidadCaracteresDescripcion = 30;
 
     // Generar el HTML para cada producto en el carrito
     carrito.items.forEach(item => {
@@ -33,12 +33,15 @@ document.addEventListener('DOMContentLoaded', function () {
         html += `<tr>
                     <td>
                         <div class="d-flex align-items-center" data-codigo="${item.codigo}">
-                            <img src="${item.imgUrl}"
-                                alt="${item.nombre}" class="me-3"
-                                style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;">
+                            <a href="./detalleProducto.html?cod=${item.codigo}" data-bs-toggle="tooltip" data-bs-placement="top" title="Click para ver detalle de ${item.nombre}">
+                                <img src="${item.imgUrl}"
+                                    alt="${item.nombre}" class="me-3"
+                                    style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover;"
+                                >
+                            </a>
                             <div>
                                 <h6 class="mb-1">${item.nombre}</h6>
-                                <small class="text-muted">${descripcionCorta}</small>
+                                <small class="text-muted" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${item.descripcion}">${descripcionCorta}</small>
                             </div>
                         </div>
                     </td>
@@ -47,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <button class="quantity-btn" data-codigo="${item.codigo}" data-action="restar">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <span class="quantity-display">${item.cantidad}</span>
+                            <span class="quantity-display fs-6">${item.cantidad}</span>
                             <button class="quantity-btn" data-codigo="${item.codigo}" data-action="sumar">
                                 <i class="fas fa-plus"></i>
                             </button>

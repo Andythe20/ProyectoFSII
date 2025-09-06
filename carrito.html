@@ -22,7 +22,7 @@
 <body>
     <!--NAVBAR-->
     <header>
-        <nav class="navbar navbar-expand-sm bg-body-tertiary barra-navegacion fixed-top">
+        <nav class="navbar navbar-expand-sm bg-body-tertiary barra-navegacion fixed-top shadow">
             <div class="container-fluid">
 
                 <a class="navbar-brand d-flex align-items-center" href="/">
@@ -92,12 +92,12 @@
                                 <th scope="col">Producto</th>
                                 <th scope="col" class="text-center">Cantidad</th>
                                 <th scope="col" class="text-center">Precio Unit.</th>
-                                <th scope="col" class="text-center">Total</th>
-                                <th scope="col" class="text-center">Acciones</th>
+                                <th scope="col" class="text-center">Sub total</th>
+                                <th scope="col" class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody id="cart-items">
-                            <!-- Ejemplo de items en el carrito -->
+                            <!-- Elementos generados dinámicamente con JS -->
                         </tbody>
                     </table>
                 </div>
@@ -107,6 +107,12 @@
                     <i class="fas fa-shopping-cart"></i>
                     <h4>Tu carrito está vacío</h4>
                     <p class="carrito__parrafo">Agrega algunos deliciosos productos para comenzar</p>
+                    <p class="text-center">
+                        <a href="./productos.html" class="btn btnBrown">
+                            Ver Productos
+                        </a>
+                    </p>
+                    <hr>
                 </div>
 
                 <!-- Total y acciones -->
