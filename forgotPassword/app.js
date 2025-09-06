@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text: "Se ha enviado información de recuperación a su correo electrónico.",
             showConfirmButton: false,
             timer: 2000,
-            timerProgressBar: true
+            timerProgressBar: true,
         }).then(() => {
             window.location.href = '../login/login.html'; // Redirigir a la vista de login
         });
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para validar el formato del correo electrónico
     function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        return re.test(email)
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return regex.test(email)
     };
 
     // Función para obtener un elemento por su ID

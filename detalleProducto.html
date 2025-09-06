@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME v7.0.0 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- CUSTOM CSS BASE -->
+    <link rel="stylesheet" href="./assets/styles.css">
+    <!-- CUSTOM CSS DETALLE PRODUCTO -->
+    <link rel="stylesheet" href="./detalleProducto/style.css">
+    <title>Carrito: Only Flans</title>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <header>
+        <nav class="navbar navbar-expand-sm bg-body-tertiary barra-navegacion fixed-top">
+            <div class="container-fluid">
+
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    OnlyFlans
+                    <img src="./assets/img/OnlyFlans_logo.png" alt="Logo epIk0" width="50" height="50"
+                        class="d-inline-block align-text-top ms-2 rounded-circle p-1 border border-1">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto ">
+                        <a class="nav-link" href="/">Inicio</a>
+                        <a class="nav-link active borde-apartado" href="./productos.html">Productos</a>
+                        <a class="nav-link" aria-current="page" href="./sobre-nosotros.html">Sobre nosotros</a>
+                        <a class="nav-link" href="./contacto/contacto.html">Contáctanos</a>
+
+
+                        <!--- APARTADO DEL USUARIO -->
+                        <!-- Posible logo para cuando ya
+                        haya iniciado sesion ¿? 
+                        <ion-icon name="person-sharp"></ion-icon>
+                        -->
+
+                        <a class="nav-link" href="./login/login.html">Iniciar sesión</a>
+
+                        <!--- APARTADO DEL USUARIO -->
+                        <!-- Apartado del CARRITO -->
+                        <a class="nav-link position-relative d-flex align-items-center" href="./carrito.html"
+                            id="carrito-link">
+                            <div class="position-relative d-inline-block">
+                                <ion-icon name="cart-outline"
+                                    style="font-size: 1.8rem; vertical-align: middle;"></ion-icon>
+                                <span id="cart-count"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4">
+                Repostería : OnlyFlans
+            </h1>
+            <hr>
+        </div>
+        <div class="d-none" id="noDataFound">
+            <h3 class="text-center text-danger">No se encontró el producto.</h3>
+            <p class="text-center">
+                Por favor, regresa a la página de <a href="./productos.html">productos</a> y selecciona otro artículo.
+            </p>
+        </div>
+        <div class="row" id="product-details">
+            <!-- Columna izquierda - Imagen del producto -->
+            <div class="col-lg-6 col-md-6 col-12 mb-4">
+                <div class="text-center">
+                    <img src="https://brigams.pe/wp-content/uploads/chocolate-2.jpg" alt="Imagen del producto"
+                        class="product-image img-fluid shadow-sm" id="product-image">
+                </div>
+            </div>
+
+            <!-- Columna derecha - Información del producto -->
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="product-info">
+                    <!-- Nombre del producto -->
+                    <h2 class="product-title h2 mb-3" id="product-title">
+                        Nombre del producto
+                    </h2>
+                    <hr>
+
+                    <!-- Código del producto -->
+                    <p class="product-code mb-3">
+                        <strong>Código:</strong> <span id="product-code">ABC123</span>
+                    </p>
+
+                    <!-- Detalle del producto -->
+                    <div class="product-description mb-4">
+                        <h5>Descripción del producto</h5>
+                        <p class="text-muted" id="product-description">
+                            Descripción del producto
+                        </p>
+
+                        <!-- Características adicionales -->
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>100% Artesanal</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Receta Familiar</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Mantener 2-8°C</li>
+                            <li><i class="fas fa-check text-success me-2"></i>4-5 días vigencia</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Calidad Premium</li>
+                        </ul>
+                    </div>
+
+                    <!-- Precio -->
+                    <div class="product-price mb-4">
+                        <span class="price fs-2 fw-bold" id="product-price">$799.99</span>
+                        <small class="text-muted ms-2">c/u IVA incluido</small>
+                    </div>
+
+                    <!-- Cantidad y botón agregar al carrito -->
+                    <div class="product-actions">
+                        <div class="row align-items-end">
+                            <div class="col-4 col-sm-3">
+                                <label for="quantity" class="form-label">Cantidad:</label>
+                                <input type="number" class="form-control" id="quantity" value="1" min="1" max="10">
+                            </div>
+                            <div class="col-8 col-sm-9">
+                                <div style="margin-top: 31px;">
+                                    <button type="button" class="btn btnBrown add-to-cart-btn w-100" id="btnAddToCart">
+                                        <i class="fas fa-shopping-cart me-2"></i>
+                                        Agregar al Carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de envío -->
+                    <div class="shipping-info mt-4 p-3 bg-light rounded">
+                        <h6><i class="fas fa-truck me-2"></i>Información de envío</h6>
+                        <small class="text-muted">
+                            Envío gratis en pedidos superiores a $50.000.
+                            Entrega estimada: 2-5 días hábiles.
+                            Envíos refrigerados garantizados.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JS BOOTSTRAP v5.3.7 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <!-- Para iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- CUSTOM JS BASE -->
+    <script src="./assets/app.js"></script>
+    <!-- CUSTOM JS CARRITO -->
+    <script src="./carrito/carrito.js"></script>
+    <!-- CUSTOM JS DETALLE PRODUCTO -->
+    <script src="./detalleProducto/detalleRender.js"></script>
+</body>
+<footer class="footer">
+
+    <h3>No olvides seguirnos en nuestras redes sociales!!</h3>
+
+    <ul class="social-icons">
+        <li class="icon-element">
+            <a href="https://www.youtube.com/@CocinaAbiertaDuocUC" target="_blank" class="icon">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-element">
+            <a href="https://www.facebook.com/DuocUC" target="_blank" class="icon">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-element">
+            <a href="https://www.instagram.com/duocuc_cl" target="_blank" class="icon">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+        </li>
+        <li class="icon-element">
+            <a href="https://x.com/DuocUC" target="_blank" class="icon">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+        </li>
+
+        <li class="icon-element">
+            <a href="https://www.linkedin.com/company/duocuc" target="_blank" class="icon">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+        </li>
+
+    </ul>
+
+    <ul class="menu">
+        <p class="texto">
+            @2025 OnlyFlans | Todos los derechos reservados
+        </p>
+    </ul>
+</footer>
+
+</html>
