@@ -25,23 +25,23 @@ document.addEventListener('DOMContentLoaded', function () {
       productos.forEach(producto => {
         html += `
         <div class="col-12 col-md-6 col-lg-4 d-flex">
-    <div class="card mx-auto shadow-sm btnConcavo d-flex flex-column w-100">
-        <form class="formulario__producto d-flex flex-column h-100">
-            <img src="${producto.url}" class="card-img-top" alt="${producto.nombre}">
-            <div class="card-body d-flex flex-column flex-grow-1 text-center">
-                <h5 class="card-title fs-3">${producto.nombre}</h5>
-                <p class="card-text fs-2 fw-bold producto__precio">
-                    Precio: <span id="producto__precio--moneda">${formatoMoneda.format(producto.precio)}</span>
-                </p>
-                <small>Código: ${producto.codigo}</small>
-                <p class="flex-grow-1 producto__descripcion">${producto.descripcion || ''}</p>
-                <button type="submit" class="btn btnBrown mt-auto fs-5 id="btnAgregar">
-                    <i class="fa-solid fa-cart-plus"></i> Agregar
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
+          <div class="card mx-auto shadow-sm btnConcavo d-flex flex-column w-100">
+              <form class="formulario__producto d-flex flex-column h-100">
+                  <a href="./detalleProducto.html?cod=${producto.codigo}"><img src="${producto.url}" class="card-img-top shadow" alt="${producto.nombre}"></a>
+                  <div class="card-body d-flex flex-column flex-grow-1 text-center">
+                      <h5 class="card-title fs-3">${producto.nombre}</h5>
+                      <p class="card-text fs-2 fw-bold producto__precio">
+                          Precio: <span id="producto__precio--moneda">${formatoMoneda.format(producto.precio)}</span>
+                      </p>
+                      <small>Código: ${producto.codigo}</small>
+                      <p class="flex-grow-1 producto__descripcion">${producto.descripcion || ''}</p>
+                      <button type="submit" class="btn btnBrown mt-auto fs-5 id="btnAgregar">
+                          <i class="fa-solid fa-cart-plus"></i> Agregar
+                      </button>
+                  </div>
+              </form>
+          </div>
+        </div>
         `;
       });
 

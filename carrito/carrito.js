@@ -44,7 +44,7 @@ class Carrito {
             if (producto.cantidad <= 0) {
                 this.items = this.items.filter(item => item.codigo !== codigo);
             }
-            
+
         }
     }
 
@@ -72,11 +72,17 @@ class Carrito {
         }
     }
 
-    contarProductos(){
+    contarProductos() {
         let total = 0;
         this.items.forEach(item => {
             total += item.cantidad
         });
         return total;
+    }
+
+    obtenerProductoPorId(codigo) {
+        return this.items.find(producto =>
+            producto.codigo.toLowerCase() === codigo.toLowerCase()
+        );
     }
 }

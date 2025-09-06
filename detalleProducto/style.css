@@ -1,0 +1,4 @@
+body{
+    font-family: var(--font-primary-lato);
+    color: var(--color-text-primary);
+}

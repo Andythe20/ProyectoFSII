@@ -112,7 +112,13 @@ nav.navbar{
 
 .card:hover {
   transform: translateY(-8px); /* se levanta */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* sombra más fuerte */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card .card-img-top {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  box-shadow: 0 4px 8px var(--color-chocolate);
 }
 
 .swal-title-custom {
