@@ -54,12 +54,13 @@ document.addEventListener('DOMContentLoaded', function () {
       // Manejar el evento de envío del formulario
       forms.forEach(form => {
         form.addEventListener('submit', function (event) {
-          console.log(event.target)
+          //console.log(event.target)
           const codigo = event.target.childNodes[3].childNodes[5].innerText.split('Código: ')[1];
           const nombre = event.target.childNodes[3].childNodes[1].innerText;
           const precio = parseInt(event.target.childNodes[3].childNodes[3].innerText.split('$')[1].replace(/\./g, ''));
           const descripcion = event.target.childNodes[3].childNodes[7].innerHTML;
-          const imgUrl = event.target.childNodes[1].src;
+          //const imgUrl = event.target.childNodes[1].src;
+          const imgUrl = document.querySelector('.formulario__producto img').src;
 
           // Crear un nuevo producto con cantidad 1
           const producto = new Producto(codigo, nombre, precio, descripcion, imgUrl);
