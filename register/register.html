@@ -16,6 +16,7 @@
     <div class="container">
         <div class="register-container">
             <h2 class="register-title">Crear Cuenta</h2>
+            <hr>
             <form id="registerForm" class="needs-validation" novalidate action="../validation/validation.html"
                 method="GET">
                 <div class="row">
@@ -34,7 +35,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="rut" class="form-label">RUT (sin puntos ni guión)</label>
                         <input type="text" class="form-control" id="rut" placeholder="12345678K" minlength="9"
                             maxlength="10" required>
@@ -44,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="birthDate" class="form-label">Fecha de Nacimiento</label>
                         <input type="date" class="form-control" id="birthDate" required>
                     </div>
@@ -52,7 +53,8 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo Electrónico</label>
                         <input type="email" class="form-control" id="email" name="email"
-                            placeholder="nombre@dominio.com" required autocomplete="new-password" minlength="3" maxlength="30">
+                            placeholder="nombre@dominio.com" required autocomplete="new-password" minlength="3"
+                            maxlength="30">
                         <div class="invalid-feedback">
                             Ingrese un correo electrónico válido.
                         </div>

@@ -12,7 +12,6 @@
     text-align: center;
     margin-bottom: 15px;
     color: var(--color-text-primary);
-    font-family: var(--font-header-pacifico);
 }
 
 .form-control:focus {
@@ -27,3 +26,27 @@ form {
 form a {
     color: var(--color-chocolate);
 }
+
+form a:hover {
+    color: var(--color-chocolate);
+    text-decoration: none;
+}
+
+
+input[type="checkbox"] {
+  appearance: none;      /* Quita el estilo por defecto */
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--color-chocolate); /* Color del check */
+  border-color: var(--color-text-primary);
+}
+

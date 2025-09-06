@@ -24,6 +24,10 @@ form {
     color: var(--color-chocolate);
 }
 
+#registerForm a:hover {
+    text-decoration: none;
+}
+
 #registerForm button{
     background-color: var(--color-soft-pink);
     color: var(--color-text-primary);
@@ -48,4 +52,9 @@ form {
 .password-mismatch {
     color: red;
     display: none;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--color-chocolate); /* Color del check */
+  border-color: var(--color-text-primary);
 }
