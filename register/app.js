@@ -211,10 +211,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Guardar el array completo de vuelta en localStorage
         localStorage.setItem('users', JSON.stringify(users));
 
-        // Si el registro es exitoso, muestra una notificación y redirige
-        alert('¡Registro exitoso! Serás redirigido al inicio de sesión.');
-        window.location.href = '../login/login.html'; // Redirige a la página de inicio de sesión
-
     }
 
     function isFutureDate(dateString) {
