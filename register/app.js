@@ -99,12 +99,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function formatRutInput(e) {
-        let rut = e.target.value.replace(/[.-]/g, '');
-        if (rut.length > 1) {
-            rut = rut.slice(0, -1) + '-' + rut.slice(-1).toUpperCase();
+    function validarRut(rutCompleto) {
+        // 1. Elimina puntos y guiones, y convierte a mayúsculas
+        rutCompleto = rutCompleto.replace(/\./g, '').replace('-', '').toUpperCase();
+
+        // 2. Verifica el formato: 7 u 8 dígitos seguidos de un dígito verificador (número o K)
+        if (!/^\d{7,8}[0-9K]$/.test(rutCompleto)) return false;
+
+        // 3. Separa el RUT en la parte numérica y el dígito verificador
+        let rut = rutCompleto.slice(0, -1); // Todos menos el último carácter
+        let dv = rutCompleto.slice(-1);     // Último carácter (dígito verificador)
+
+        // 4. Calcula el dígito verificador esperado usando el algoritmo oficial
+        let suma = 0, multiplo = 2;
+        for (let i = rut.length - 1; i >= 0; i--) {
+            suma += parseInt(rut[i]) * multiplo;
+            multiplo = multiplo < 7 ? multiplo + 1 : 2;
         }
-        e.target.value = rut;
+        let dvEsperado = 11 - (suma % 11);
+        dvEsperado = dvEsperado === 11 ? '0' : dvEsperado === 10 ? 'K' : dvEsperado.toString();
+
+        // 5. Compara el dígito verificador ingresado con el calculado
+        return dv === dvEsperado;
     }
 
     // Validación del formulario completo (actualizada con SweetAlert2)
@@ -126,6 +142,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!rutInput.value.trim()) {
             notification.showError('El RUT es obligatorio');
+            rutInput.focus();
+            return;
+        } else if (!validarRut(rutInput.value)) {
+            notification.showError('Ingrese un RUT válido');
             rutInput.focus();
             return;
         }
