@@ -94,6 +94,12 @@
         html: "<span class='swal-text-custom'>Formulario enviado correctamente.</span>",
         icon: "success",
         confirmButtonText: "<span class='swal-text-custom'>Aceptar</span>",
+        confirmButtonColor: '#8B4513'
+      }).then(() => {
+        form.reset();
+        nombre.classList.remove("is-valid");
+        correo.classList.remove("is-valid");
+        mensaje.classList.remove("is-valid");
       });
     } else {
       Swal.fire({
@@ -115,6 +121,8 @@
         html: "<span class='swal-text-custom'>Por favor, verifique los datos ingresados.</span>",
         icon: "error",
         confirmButtonText: "<span class='swal-text-custom'>Aceptar</span>",
+        confirmButtonColor: '#8B4513'
+        
       });
       //encuentra el primer campo inválido y lo enfoca
       const firstInvalid = form.querySelector(".is-invalid");
