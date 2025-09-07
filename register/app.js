@@ -61,18 +61,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    /*
     // Resto de funciones auxiliares
     function showValidationFeedback(element, isValid, message) {
         if (isValid) {
-            element.style.display = 'block';
+            //element.style.display = 'block';
             element.style.color = 'green';
             element.textContent = message;
         } else {
-            element.style.display = 'block';
+            //element.style.display = 'block';
             element.style.color = 'red';
             element.textContent = message;
         }
     }
+    */
 
     function validatePasswordStrength() {
         const validation = passwordValidator.validate(password.value);
@@ -80,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (password.value === '') {
             passwordStrength.style.display = 'none';
         } else {
-            showValidationFeedback(passwordStrength, validation.isValid, validation.message);
+            //showValidationFeedback(passwordStrength, validation.isValid, validation.message);
         }
     }
 
@@ -198,12 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Si todo está correcto
-        notification.showSuccess('Hemos enviado un correo electrónico a: ' + emailInput.value)
-            .then(() => {
-                registerForm.submit(); // Descomentar para enviar realmente
-            });
-
         // Obtener la lista de usuarios desde localStorage
         const users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -211,26 +207,31 @@ document.addEventListener('DOMContentLoaded', function () {
         const userExists = users.some(user => user.email === emailInput.value);
 
         if (userExists) { // Muestra una alerta o notificación si el usuario ya existe
-            alert('El correo electrónico ya está registrado. Por favor, inicia sesión o usa otro correo.');
+            notification.showError('El correo electrónico ya está registrado. Por favor, inicia sesión o usa otro correo.');
+            emailInput.focus();
             return;
         }
 
-
         // Crear el objeto "usuario" con los datos del nuevo usuario
-            const newUser = {
+        const newUser = {
             firstName: firstNameInput.value,
             lastName: lastNameInput.value,
-            rut: rutInput.value,
+            rut: normalizeRut(rutInput.value),
             birthDate: birthDateInput.value,
             email: emailInput.value,
             password: password.value // Se almacena la contraseña (sin encriptar u otra forma de proteccion)
         };
-
-        users.push(newUser)
+        
+        users.push(newUser);
 
         // Guardar el array completo de vuelta en localStorage
         localStorage.setItem('users', JSON.stringify(users));
 
+        // Si todo está correcto
+        notification.showSuccess('Hemos enviado un correo electrónico a: ' + emailInput.value)
+            .then(() => {
+                registerForm.submit(); // Descomentar para enviar realmente
+            });
     }
 
     function isFutureDate(dateString) {
@@ -244,6 +245,18 @@ document.addEventListener('DOMContentLoaded', function () {
         today.setHours(0, 0, 0, 0);
 
         return selectedDate > today; // true si la fecha es FUTURA
+    }
+
+    function formatRutInput() {
+        let rut = rutInput.value.replace(/\./g, '').replace('-', '').toUpperCase();
+        if (rut.length > 1) {
+            rut = rut.slice(0, -1) + '-' + rut.slice(-1).toUpperCase();
+        }
+        rutInput.value = rut;
+    }
+
+    function normalizeRut(rut) {
+        return rut.replace(/\./g, '').replace(/-/g, '').toUpperCase();
     }
 
     // Event listeners (se mantienen igual)
