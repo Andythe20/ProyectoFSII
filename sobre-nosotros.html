@@ -30,23 +30,33 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ms-auto ">
+                    <div class="navbar-nav me-auto ">
                         <a class="nav-link" href="/">Inicio</a>
                         <a class="nav-link" href="./productos.html">Productos</a>
                         <a class="nav-link active border-bottom borde-apartado" aria-current="page" href="./sobre-nosotros.html">Sobre nosotros</a>
                         <a class="nav-link" href="./contacto/contacto.html">Contáctanos</a>
-
-
-                        <!--- APARTADO DEL USUARIO -->
-                        <!-- Posible logo para cuando ya
-                        haya iniciado sesion ¿? 
-                        <ion-icon name="person-sharp"></ion-icon>
-                        -->
-
-                        <a class="nav-link" href="./login/login.html">Iniciar sesión</a>
+                    </div>
 
                         <!--- APARTADO DEL USUARIO -->
+                    <div class="navbar-nav ms-auto">
+                        <div id="loginSection">
+                            <a class="nav-link" href="./login/login.html">Iniciar sesión</a>
+                        </div>
+
+                        <div class="dropdown" style="display:none;" id="userMenu">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span id="welcomeText" class="ms-2">¡Hola, usuario!</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" id="logoutLink">Cerrar Sesión</a></li>
+                            </ul>
+                        </div>
+                        <!--- APARTADO DEL USUARIO -->
+
                         <!-- Apartado del CARRITO -->
                         <a class="nav-link position-relative d-flex align-items-center" href="./carrito.html"
                             id="carrito-link">
@@ -59,6 +69,7 @@
                                 </span>
                             </div>
                         </a>
+                        <!-- Apartado del CARRITO -->
                     </div>
                 </div>
             </div>
@@ -225,6 +236,10 @@
     <!-- JS CARRITO -->
     <script src="./carrito/carrito.js"></script>
     <script src="assets/app.js"></script>
+    
+    <!-- JS Usuario -->
+     <script src="./userMenu/app.js"></script>
+
 </body>
 
 </html>

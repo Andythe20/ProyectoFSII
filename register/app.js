@@ -183,6 +183,38 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(() => {
                 registerForm.submit(); // Descomentar para enviar realmente
             });
+
+        // Obtener la lista de usuarios desde localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Verificar si el correo electrónico ya está registrado
+        const userExists = users.some(user => user.email === emailInput.value);
+
+        if (userExists) { // Muestra una alerta o notificación si el usuario ya existe
+            alert('El correo electrónico ya está registrado. Por favor, inicia sesión o usa otro correo.');
+            return;
+        }
+
+
+        // Crear el objeto "usuario" con los datos del nuevo usuario
+            const newUser = {
+            firstName: firstNameInput.value,
+            lastName: lastNameInput.value,
+            rut: rutInput.value,
+            birthDate: birthDateInput.value,
+            email: emailInput.value,
+            password: password.value // Se almacena la contraseña (sin encriptar u otra forma de proteccion)
+        };
+
+        users.push(newUser)
+
+        // Guardar el array completo de vuelta en localStorage
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // Si el registro es exitoso, muestra una notificación y redirige
+        alert('¡Registro exitoso! Serás redirigido al inicio de sesión.');
+        window.location.href = '../login/login.html'; // Redirige a la página de inicio de sesión
+
     }
 
     function isFutureDate(dateString) {
